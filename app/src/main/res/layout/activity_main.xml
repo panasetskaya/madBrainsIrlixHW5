@@ -12,6 +12,7 @@
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
+        android:contentDescription="@string/background_photo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,11 +27,18 @@
         app:layout_constraintGuide_begin="23dp" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline92vert"
+        android:id="@+id/guideline96vert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.92" />
+        app:layout_constraintGuide_percent="0.96" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline82vert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.82" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline95horiz"
@@ -45,4 +53,79 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.04" />
+
+    <TextView
+        android:id="@+id/textViewReels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/reels"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline23"
+        app:layout_constraintTop_toTopOf="@+id/guideline4horiz" />
+
+    <ImageView
+        android:id="@+id/imageViewCamera"
+        android:contentDescription="@string/upload_a_photo"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewReels"
+        app:layout_constraintEnd_toStartOf="@+id/guideline96vert"
+        app:layout_constraintStart_toEndOf="@+id/guideline82vert"
+        app:layout_constraintTop_toTopOf="@+id/guideline4horiz"
+        app:srcCompat="@drawable/camera_icon" />
+
+    <ImageView
+        android:id="@+id/imageViewHeart"
+        android:contentDescription="@string/add_to_favourites"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline96vert"
+        app:layout_constraintStart_toEndOf="@+id/guideline82vert"
+        app:layout_constraintTop_toTopOf="@+id/guideline4horiz"
+        android:layout_marginTop="350dp"
+        app:srcCompat="@drawable/heart_icon" />
+
+    <TextView
+        android:id="@+id/textViewLikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/likes_count"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/guideline96vert"
+        app:layout_constraintStart_toEndOf="@+id/guideline82vert"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewHeart" />
+
+    <ImageView
+        android:id="@+id/imageViewChat"
+        app:srcCompat="@drawable/chat_icon"
+        android:contentDescription="@string/go_to_the_chat"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline96vert"
+        app:layout_constraintStart_toEndOf="@+id/guideline82vert"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLikes" />
+
+    <TextView
+        android:id="@+id/textViewChatCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="110"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/guideline96vert"
+        app:layout_constraintStart_toEndOf="@+id/guideline82vert"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewChat"/>
+
+    <ImageView
+        android:id="@+id/imageViewSend"
+        app:srcCompat="@drawable/send_icon"
+        android:contentDescription="@string/send_or_share"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline96vert"
+        app:layout_constraintStart_toEndOf="@+id/guideline82vert"
+        app:layout_constraintTop_toBottomOf="@+id/textViewChatCount" />
 </androidx.constraintlayout.widget.ConstraintLayout>

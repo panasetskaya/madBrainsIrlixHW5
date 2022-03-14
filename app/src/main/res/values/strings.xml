@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">madBrainsIrlixHomeW5</string>
+    <string name="reels">Reels</string>
+    <string name="likes_count">19.6k</string>
+    <string name="background_photo">Background photo</string>
+    <string name="upload_a_photo">Upload a photo</string>
+    <string name="add_to_favourites">Add to favourites</string>
+    <string name="go_to_the_chat">Go to the chat</string>
+    <string name="send_or_share">Send or share</string>
 </resources>
