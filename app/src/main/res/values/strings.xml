@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">madBrainsIrlixHomeW5</string>
+    <string name="reels">Reels</string>
+    <string name="likes_count">19.6k</string>
+    <string name="background_photo">Background photo</string>
+    <string name="upload_a_photo">Upload a photo</string>
+    <string name="add_to_favourites">Add to favourites</string>
+    <string name="go_to_the_chat">Go to the chat</string>
+    <string name="send_or_share">Send or share</string>
+    <string name="kind_of_music">Original music</string>
+    <string name="type_of_music_playing_now">Type of music playing now</string>
+    <string name="message_text">Try at your own risk</string>
+    <string name="name">awsm_jane</string>
+    <string name="settings">Settings</string>
+    <string name="archive">Archive</string>
+    <string name="your_activity">Your activity</string>
+    <string name="qr_code">QR Code</string>
+    <string name="saved">Saved</string>
+    <string name="close_friends">Close Friends</string>
+    <string name="discover_people">Discover People</string>
+    <string name="covid_19_information_center">COVID-19 Information Center</string>
+    <string name="_110">110</string>
+    <string name="avatar_image">Avatar image</string>
+    <string name="follow_button">Follow button</string>
+    <string name="menu_icon">Menu icon</string>
+    <string name="_description">Icon</string>
 </resources>

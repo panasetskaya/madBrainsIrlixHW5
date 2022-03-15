@@ -6,13 +6,241 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <ImageView
+        android:id="@+id/imageViewBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/background_photo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/girl" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="23dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline96vert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline82vert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.82" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline95horiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4horiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <TextView
+        android:id="@+id/textViewReels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/reels"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline23"
+        app:layout_constraintTop_toTopOf="@+id/guideline4horiz" />
+
+    <ImageView
+        android:id="@+id/imageViewCamera"
+        android:contentDescription="@string/upload_a_photo"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewReels"
+        app:layout_constraintEnd_toStartOf="@+id/guideline96vert"
+        app:layout_constraintStart_toEndOf="@+id/guideline82vert"
+        app:layout_constraintTop_toTopOf="@+id/guideline4horiz"
+        app:srcCompat="@drawable/camera_icon" />
+
+    <ImageView
+        android:id="@+id/imageViewHeart"
+        android:contentDescription="@string/add_to_favourites"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline96vert"
+        app:layout_constraintStart_toEndOf="@+id/guideline82vert"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewChat"
+        app:layout_constraintTop_toBottomOf="@id/guideline50horiz"
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/heart_icon" />
+
+    <TextView
+        android:id="@+id/textViewLikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/likes_count"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:fontFamily="@font/roboto"
+        app:layout_constraintEnd_toStartOf="@+id/guideline96vert"
+        app:layout_constraintStart_toEndOf="@+id/guideline82vert"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewHeart" />
+
+    <ImageView
+        android:id="@+id/imageViewChat"
+        app:srcCompat="@drawable/chat_icon"
+        android:contentDescription="@string/go_to_the_chat"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline96vert"
+        app:layout_constraintStart_toEndOf="@+id/guideline82vert"
+        app:layout_constraintBottom_toTopOf="@id/imageViewSend"
+        app:layout_constraintTop_toBottomOf="@id/imageViewHeart"/>
+
+    <TextView
+        android:id="@+id/textViewChatCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_110"
+        android:fontFamily="@font/roboto"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/guideline96vert"
+        app:layout_constraintStart_toEndOf="@+id/guideline82vert"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewChat"/>
+
+    <ImageView
+        android:id="@+id/imageViewSend"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:contentDescription="@string/send_or_share"
+        app:layout_constraintBottom_toTopOf="@+id/barrierUsernameFollowTop"
+        app:layout_constraintEnd_toStartOf="@+id/guideline96vert"
+        app:layout_constraintStart_toEndOf="@+id/guideline82vert"
+        app:layout_constraintTop_toBottomOf="@id/imageViewChat"
+        android:layout_marginBottom="16dp"
+        app:srcCompat="@drawable/send_icon" />
+
+    <ImageView
+        android:id="@+id/imageViewMusicIcon"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        app:srcCompat="@drawable/music_icon"
+        android:contentDescription="@string/type_of_music_playing_now"
+        app:layout_constraintStart_toEndOf="@id/guideline23"
+        app:layout_constraintBottom_toTopOf="@id/guideline95horiz"/>
+
+    <TextView
+        android:id="@+id/textViewKindOfMusic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kind_of_music"
+        android:fontFamily="@font/roboto"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/imageViewMusicIcon"
+        app:layout_constraintBottom_toTopOf="@id/guideline95horiz"/>
+
+    <TextView
+        android:id="@+id/textViewMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/message_text"
+        android:fontFamily="@font/roboto"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/guideline23"
+        app:layout_constraintBottom_toTopOf="@+id/textViewKindOfMusic"
+        android:layout_marginBottom="16dp"/>
+
+    <ImageView
+        android:id="@+id/imageViewAvatar"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        app:srcCompat="@drawable/avatar_icon"
+        android:contentDescription="@string/avatar_image"
+        app:layout_constraintStart_toEndOf="@id/guideline23"
+        app:layout_constraintBottom_toTopOf="@+id/textViewMessage"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/name"
+        android:fontFamily="@font/roboto"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewAvatar"
+        app:layout_constraintStart_toEndOf="@id/imageViewAvatar"
+        app:layout_constraintTop_toTopOf="@+id/imageViewAvatar" />
+
+    <ImageView
+        android:id="@+id/imageViewButtonFollow"
+        android:layout_width="83dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/follow_button"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewName"
+        app:layout_constraintTop_toTopOf="@+id/textViewName"
+        app:layout_constraintStart_toEndOf="@id/textViewName"
+        android:contentDescription="@string/follow_button"
+        android:layout_marginStart="16dp"/>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierUsernameFollowTop"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="imageViewButtonFollow, textViewName" />
+
+    <ImageView
+        android:id="@+id/imageViewMenuIcon"
+        android:layout_width="5dp"
+        android:layout_height="18dp"
+        app:srcCompat="@drawable/menu_icon"
+        android:contentDescription="@string/menu_icon"
+        app:layout_constraintEnd_toStartOf="@+id/guideline96vert"
+        app:layout_constraintStart_toEndOf="@+id/guideline82vert"
+        app:layout_constraintTop_toBottomOf="@id/barrierUsernameFollowTop"
+        app:layout_constraintBottom_toBottomOf="@id/textViewName"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline50horiz"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupAllElements"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="textViewName,textViewReels,
+        imageViewCamera, imageViewHeart, textViewLikes, imageViewChat,
+        textViewChatCount,imageViewSend, imageViewMenuIcon,
+        imageViewAvatar, imageViewButtonFollow, textViewMessage,
+        imageViewMusicIcon, textViewKindOfMusic"
+        android:visibility="visible"
+         />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
