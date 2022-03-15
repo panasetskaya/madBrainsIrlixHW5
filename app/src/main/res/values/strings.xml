@@ -7,4 +7,8 @@
     <string name="add_to_favourites">Add to favourites</string>
     <string name="go_to_the_chat">Go to the chat</string>
     <string name="send_or_share">Send or share</string>
+    <string name="kind_of_music">Original music</string>
+    <string name="type_of_music_playing_now">Type of music playing now</string>
+    <string name="message_text">Try at your own risk</string>
+    <string name="name">awsm_jane</string>
 </resources>

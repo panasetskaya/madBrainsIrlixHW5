@@ -58,10 +58,10 @@
         android:id="@+id/textViewReels"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
+        android:fontFamily="@font/roboto"
         android:text="@string/reels"
         android:textColor="#FFFFFF"
-        android:textSize="30sp"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="@+id/guideline23"
         app:layout_constraintTop_toTopOf="@+id/guideline4horiz" />
 
@@ -83,8 +83,10 @@
         android:layout_height="35dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline96vert"
         app:layout_constraintStart_toEndOf="@+id/guideline82vert"
-        app:layout_constraintTop_toTopOf="@+id/guideline4horiz"
-        android:layout_marginTop="350dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewChat"
+        app:layout_constraintTop_toBottomOf="@id/guideline50horiz"
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        android:layout_marginTop="16dp"
         app:srcCompat="@drawable/heart_icon" />
 
     <TextView
@@ -93,6 +95,8 @@
         android:layout_height="wrap_content"
         android:text="@string/likes_count"
         android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:fontFamily="@font/roboto"
         app:layout_constraintEnd_toStartOf="@+id/guideline96vert"
         app:layout_constraintStart_toEndOf="@+id/guideline82vert"
         app:layout_constraintTop_toBottomOf="@+id/imageViewHeart" />
@@ -103,16 +107,18 @@
         android:contentDescription="@string/go_to_the_chat"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline96vert"
         app:layout_constraintStart_toEndOf="@+id/guideline82vert"
-        app:layout_constraintTop_toBottomOf="@+id/textViewLikes" />
+        app:layout_constraintBottom_toTopOf="@id/imageViewSend"
+        app:layout_constraintTop_toBottomOf="@id/imageViewHeart"/>
 
     <TextView
         android:id="@+id/textViewChatCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="110"
+        android:fontFamily="@font/roboto"
+        android:textSize="16sp"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toStartOf="@+id/guideline96vert"
         app:layout_constraintStart_toEndOf="@+id/guideline82vert"
@@ -120,12 +126,105 @@
 
     <ImageView
         android:id="@+id/imageViewSend"
-        app:srcCompat="@drawable/send_icon"
-        android:contentDescription="@string/send_or_share"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_marginTop="16dp"
+        android:contentDescription="@string/send_or_share"
+        app:layout_constraintBottom_toTopOf="@+id/barrierUsernameFollowTop"
         app:layout_constraintEnd_toStartOf="@+id/guideline96vert"
         app:layout_constraintStart_toEndOf="@+id/guideline82vert"
-        app:layout_constraintTop_toBottomOf="@+id/textViewChatCount" />
+        app:layout_constraintTop_toBottomOf="@id/imageViewChat"
+        android:layout_marginBottom="16dp"
+        app:srcCompat="@drawable/send_icon" />
+
+    <ImageView
+        android:id="@+id/imageViewMusicIcon"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        app:srcCompat="@drawable/music_icon"
+        android:contentDescription="@string/type_of_music_playing_now"
+        app:layout_constraintStart_toEndOf="@id/guideline23"
+        app:layout_constraintBottom_toTopOf="@id/guideline95horiz"/>
+
+    <TextView
+        android:id="@+id/textViewKindOfMusic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kind_of_music"
+        android:fontFamily="@font/roboto"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/imageViewMusicIcon"
+        app:layout_constraintBottom_toTopOf="@id/guideline95horiz"/>
+
+    <TextView
+        android:id="@+id/textViewMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/message_text"
+        android:fontFamily="@font/roboto"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/guideline23"
+        app:layout_constraintBottom_toTopOf="@+id/textViewKindOfMusic"
+        android:layout_marginBottom="16dp"/>
+
+    <ImageView
+        android:id="@+id/imageViewAvatar"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        app:srcCompat="@drawable/avatar_icon"
+        app:layout_constraintStart_toEndOf="@id/guideline23"
+        app:layout_constraintBottom_toTopOf="@+id/textViewMessage"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/name"
+        android:fontFamily="@font/roboto"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewAvatar"
+        app:layout_constraintStart_toEndOf="@id/imageViewAvatar"
+        app:layout_constraintTop_toTopOf="@+id/imageViewAvatar" />
+
+    <ImageView
+        android:id="@+id/imageViewButtonFollow"
+        android:layout_width="83dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/follow_button"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewName"
+        app:layout_constraintTop_toTopOf="@+id/textViewName"
+        app:layout_constraintStart_toEndOf="@id/textViewName"
+        android:layout_marginStart="16dp"/>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierUsernameFollowTop"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="imageViewButtonFollow, textViewName" />
+
+    <ImageView
+        android:id="@+id/imageViewMenuIcon"
+        android:layout_width="5dp"
+        android:layout_height="18dp"
+        app:srcCompat="@drawable/menu_icon"
+        app:layout_constraintEnd_toStartOf="@+id/guideline96vert"
+        app:layout_constraintStart_toEndOf="@+id/guideline82vert"
+        app:layout_constraintTop_toBottomOf="@id/barrierUsernameFollowTop"
+        app:layout_constraintBottom_toBottomOf="@id/textViewName"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline50horiz"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
