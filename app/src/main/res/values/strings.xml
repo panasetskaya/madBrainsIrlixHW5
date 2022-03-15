@@ -19,4 +19,9 @@
     <string name="close_friends">Close Friends</string>
     <string name="discover_people">Discover People</string>
     <string name="covid_19_information_center">COVID-19 Information Center</string>
+    <string name="_110">110</string>
+    <string name="avatar_image">Avatar image</string>
+    <string name="follow_button">Follow button</string>
+    <string name="menu_icon">Menu icon</string>
+    <string name="_description">Icon</string>
 </resources>
