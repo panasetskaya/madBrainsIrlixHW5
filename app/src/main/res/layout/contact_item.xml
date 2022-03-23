@@ -11,11 +11,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#1C7681"
-        android:orientation="horizontal"
+        android:background="#383D3E"
+        android:orientation="vertical"
         android:padding="8dp">
 
         <TextView
+            android:id="@+id/textViewContactName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
@@ -23,6 +24,15 @@
             android:textStyle="bold"
             android:layout_marginStart="8dp"
             tools:text="Контакт"/>
+
+        <TextView
+            android:id="@+id/textViewContactNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginStart="8dp"
+            tools:text="0000000000000000"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

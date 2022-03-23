@@ -11,10 +11,10 @@
         android:id="@+id/buttonPermission"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#1C7681"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FA0202"
         android:text="@string/get_me_my_contacts"
         android:textColor="@color/white"
-        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
