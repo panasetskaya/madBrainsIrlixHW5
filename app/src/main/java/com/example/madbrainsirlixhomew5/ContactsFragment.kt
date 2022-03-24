@@ -13,6 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import android.Manifest
 import android.app.AlertDialog
 import android.content.pm.PackageManager
+import android.provider.ContactsContract
+import androidx.core.database.getStringOrNull
+import androidx.lifecycle.MutableLiveData
 
 private const val TAG = "tag"
 
@@ -22,6 +25,7 @@ class ContactsFragment : Fragment() {
     private var contactsList = mutableListOf<Contact>()
     private lateinit var recyclerView: RecyclerView
     private lateinit var buttonGetContacts: Button
+    private val contactsLiveData = MutableLiveData<List<Contact>>()
 
     val singlePermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) {
         when {
@@ -29,9 +33,47 @@ class ContactsFragment : Fragment() {
                 parseContacts()
             }
             else -> {
-                showRequestPermissionDialog()
+                showSorryDialog()
             }
         }
+    }
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            param = it.getString(TAG)
+        }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_contacts, container, false)
+        recyclerView = view.findViewById(R.id.recyclerViewContacts)
+        adapter = MyRecyclerViewAdapter()
+        recyclerView.adapter = adapter
+        contactsLiveData.observe(requireActivity()) {
+            adapter.list = it.toMutableList()
+            adapter.notifyDataSetChanged()
+        }
+
+        buttonGetContacts = view.findViewById(R.id.buttonPermission)
+        buttonGetContacts.setOnClickListener {
+            requestContactPermissions()
+        }
+        return view
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance(param: String) =
+            ContactsFragment().apply {
+                arguments = Bundle().apply {
+                    putString(TAG, param)
+                }
+            }
     }
 
 
@@ -49,13 +91,14 @@ class ContactsFragment : Fragment() {
         }
     }
 
-    private fun showRequestPermissionDialog() {
+    private fun showSorryDialog() {
         val alertDialog = AlertDialog.Builder(requireContext())
         alertDialog.setTitle("Сорри")
         alertDialog.setMessage("Нет доступа к контактам")
         alertDialog.setPositiveButton("Ок") { dialog, i ->
             dialog.cancel()
         }
+        alertDialog.show()
     }
 
     private fun showRationaleDialog() {
@@ -66,45 +109,31 @@ class ContactsFragment : Fragment() {
             dialog.cancel()
             singlePermission.launch(Manifest.permission.READ_CONTACTS)
         }
-        alertDialog.setNegativeButton("Не дать") {dialog, i ->
+        alertDialog.setNegativeButton("Не давать") {dialog, i ->
             dialog.cancel()
+            showSorryDialog()
         }
         alertDialog.show()
     }
 
     private fun parseContacts() {
-        TODO("Not yet implemented")
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param = it.getString(TAG)
-        }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_contacts, container, false)
-        recyclerView = view.findViewById(R.id.recyclerViewContacts)
-        adapter = MyRecyclerViewAdapter(contactsList)
-        recyclerView.adapter = adapter
-        buttonGetContacts = view.findViewById(R.id.buttonPermission)
-        buttonGetContacts.setOnClickListener {
-            requestContactPermissions()
-        }
-        return view
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance(param: String) =
-            ContactsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(TAG, param)
+        val resolver = requireContext().contentResolver
+        val cursor = resolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null)
+        cursor?.let {
+            val nameColumnIndex = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME)
+            if (cursor.count>0) {
+                while (cursor.moveToNext()) {
+                    val name = cursor.getStringOrNull(nameColumnIndex)
+                    contactsList.add(Contact(name))
                 }
+                updateList()
+                buttonGetContacts.visibility = View.GONE
             }
+        }
+    }
+
+    private fun updateList() {
+        contactsLiveData.postValue(contactsList.toList())
+        adapter.notifyDataSetChanged()
     }
 }

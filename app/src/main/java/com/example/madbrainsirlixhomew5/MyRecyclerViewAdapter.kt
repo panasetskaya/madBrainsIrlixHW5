@@ -6,14 +6,15 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MyRecyclerViewAdapter(private val list: MutableList<Contact>): RecyclerView.Adapter<MyRecyclerViewAdapter.MyRecyclerViewHolder>() {
+class MyRecyclerViewAdapter(): RecyclerView.Adapter<MyRecyclerViewAdapter.MyRecyclerViewHolder>() {
+
+    var list = mutableListOf<Contact>()
+
     class MyRecyclerViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val name: TextView
-        val number: TextView
 
         init {
             name = view.findViewById(R.id.textViewContactName)
-            number = view.findViewById(R.id.textViewContactNumber)
         }
     }
 
@@ -24,8 +25,6 @@ class MyRecyclerViewAdapter(private val list: MutableList<Contact>): RecyclerVie
 
     override fun onBindViewHolder(holder: MyRecyclerViewHolder, position: Int) {
         holder.name.text = list[position].name
-        holder.number.text = list[position].number
-
     }
 
     override fun getItemCount(): Int {
